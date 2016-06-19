@@ -1,0 +1,24 @@
+<project name="MS_Test" default="all" basedir=".">
+
+	<target name="all" description="Build all" depends="compile"/>
+	
+	<target name="compile" description="Compile">
+		<mkdir dir="build"/>
+		<javac srcdir="src" destdir="build"/>
+	</target>
+	
+	<target name="jar" description="Build jar" depends="compile">
+		<jar destfile="ms_test.jar" basedir="build">
+			<manifest>
+				<attribute name="Main-Class" value="ms_test.MS_Test"/>
+			</manifest>
+		</jar>
+		<delete dir="build"/>
+	</target>
+
+	<target name="clean" description="Delete build dir">
+		<delete dir="build"/>
+		<delete file="ms_test.jar"/>
+	</target>
+
+</project>
