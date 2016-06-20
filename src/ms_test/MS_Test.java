@@ -34,10 +34,11 @@ public class MS_Test {
 
 			while ((currentLine = br.readLine()) != null) {
 				for (char ch : currentLine.toCharArray()) {
-					if(ch < nullSymbol || ch > nineSymbol){
-						throw new Exception("Only numbers allowed");
-					}
 					if (ch != ' ') {
+						if(ch < nullSymbol || ch > nineSymbol){
+							throw new Exception("Only numbers allowed");
+						}
+	
 						int i = Character.getNumericValue(ch);
 						array.add(i);
 					}
